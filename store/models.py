@@ -1,6 +1,10 @@
 from django.db import models
 
 class Category(models.Model):
+    """Модель категории товаров.
+    Представляет категорию, к которой могут быть отнесены товары в системе.
+    Используется для группировки и классификации товаров по тематическим разделам.
+"""
     name = models.CharField(max_length=100, verbose_name='Название')
     description = models.TextField(verbose_name='Описание', blank=True)
 
@@ -12,6 +16,10 @@ class Category(models.Model):
         return self.name
 
 class Product(models.Model):
+    """ Модель товара.
+    Описывает отдельный товар в системе, включая его основные характеристики:
+    название, описание, цену, дату создания и принадлежность к категории.
+"""
     name = models.CharField(max_length=200, verbose_name='Название')
     description = models.TextField(verbose_name='Описание', blank=True)
     price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='Цена')

@@ -2,12 +2,14 @@ from django.contrib import admin
 from .models import Category, Product
 
 @admin.register(Category)
+"""Административная панель для модели Category."""
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ('name', 'description')
     search_fields = ('name',)
     list_per_page = 20
 
 @admin.register(Product)
+"""Административная панель для модели Product."""
 class ProductAdmin(admin.ModelAdmin):
     list_display = ('name', 'price', 'category', 'created_at')
     list_filter = ('category', 'created_at')
